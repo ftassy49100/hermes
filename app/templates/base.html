@@ -1,0 +1,53 @@
+<html>
+<head>
+    {% if title %}
+    <title>{{ title }} - Hermès</title>
+    {% else %}
+    <title>Bienvenue sur Hermès</title>
+    {% endif %}
+    <link href="{{ url_for('static', filename='css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='CSS/main.css') }}" rel="stylesheet" type="text/css"/>
+    <script src="{{  url_for('static', filename='javascript/jquery-3.2.1.js')  }}"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="{{  url_for('static', filename='javascript/bootstrap/bootstrap.js') }}" rel="stylesheet"></script>
+    <script src="{{  url_for('static', filename='javascript/bootstrap/npm.js') }}" rel="stylesheet"></script>
+
+</head>
+{% if request.path == "/index" or request.path == "/" %}
+<body class="main_page">
+{% else %}
+<body>
+{% endif %}
+<header>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href={{ url_for('index') }} class="pull-left"> <img src="{{ url_for('static',
+                                                                        filename='images/icone.png') }}"
+                                                                       style="max-height:80px; padding:5px;"></a>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href={{ url_for('questions_list') }} class="pull-left"> Voir les questions</a></li>
+                <li><a href={{ url_for('pointing') }} class="pull-left"> Pointer</a></li>
+                <li><a href={{ url_for('profils') }} class="pull-left">Profils</a></li>
+            </ul>
+        </div>
+    </nav>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }} alert-dismissible" role="alert">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+</header>
+<div class="container">
+    {% block content %}{% endblock %}
+</div>
+<footer class="footer">
+    Hermès - F. MARTIN, F. TASSY, R. CHESNEAU 2017
+    <a href="mailto:ftassy@matfer.fr"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></a>
+</footer>
+</body>
+<script src="{{  url_for('static', filename='javascript/script.js')  }}"></script>
+</html>

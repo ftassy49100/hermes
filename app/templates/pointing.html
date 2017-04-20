@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Pointage</h1>
+    <div class="form-group">
+      <form action="" method="post" name="pointing">
+          {{ form.csrf_token }}
+          Matricule : {{ form.worker_id(class="form-control")}} <br />
+          <input type="submit" value="Ok">
+      </form>
+    </div>
+
+{% endblock %}

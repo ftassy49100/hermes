@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+    {% if worker %}
+        <h1>Question</h1>
+    {% else %}
+        <h1>Questions</h1>
+    {% endif %}
+
+    {% for question in questions %}
+    <p>
+        {{ question.id }} : {{ question.label }} <br/>
+    <form action="" method="post" name="answer">
+        <ul>
+            {% for answer in question.answers %}
+            <li><input type="radio" name="{{ question.id }}" id="{{ answer.id }}" value="{{ answer.id }}">
+                {{ answer.label }}
+            </li>
+            {% endfor %}
+        </ul>
+        <input type="submit" value="Répondre">
+    </form>
+
+    </p>
+    {% endfor %}
+{% endblock %}

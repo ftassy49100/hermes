@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+        <h1>Profils</h1>
+    {% for user in users %}
+    <p>
+        <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{  user.firstname  }} {{ user.lastname }}</h3>
+        </div>
+        <div class="panel-body">
+          Service : {{ user.service.name }} <br/>
+          Voir son <a href={{  url_for('indicator_per_user', user_id=user.id)  }}>score</a>
+        </div>
+        </div>
+
+    </p>
+    {% endfor %}
+{% endblock %}

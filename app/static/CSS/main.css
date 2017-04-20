@@ -1,0 +1,69 @@
+body {
+  /* Margin bottom by footer height */
+  max-width: 100%;
+}
+.main_page{
+  background: url(../images/main_background.jpg) no-repeat center center fixed!important;
+}
+body > div.container {
+  min-height: calc(100vh - (90px + 10px) - (60px + 15px * 2) + 20px);
+}
+header > nav {
+    height: 90px;
+}
+.footer {
+  color: #fff;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  text-align: center;
+  background: #252C34;
+  padding: 15px 0;
+}
+
+.bannerText {
+    margin: 20px auto;
+    text-align: center;
+    padding: 30px 0 30px;
+    max-width: 960px;
+    border: 1px solid #fff;
+    background: rgba(0, 0, 0, 0.2);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#b2000000, endColorstr=#b2000000);
+    zoom: 1;
+}
+
+.text-white {
+  color: #fff;
+}
+a.text-info:hover,
+a.text-info:focus {
+  color: #245269;
+}
+
+div.circle-avatar{
+    /* make it responsive */
+    max-width: 100%;
+    width:100%;
+    height:auto;
+    display:block;
+    /* div height to be the same as width*/
+    padding-top:100%;
+
+    /* make it a cirkle */
+    border-radius:50%;
+
+    /* Centering on image`s center*/
+    background-position-y: center;
+    background-position-x: center;
+    background-repeat: no-repeat;
+
+    /* it makes the clue thing, takes smaller dimention to fill div */
+    background-size: cover;
+
+    /* it is optional, for making this div centered in parent*/
+    margin: 0 auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    }

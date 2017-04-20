@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+        <h1>Explication</h1>
+            <p>
+                {% if right_answer is equalto 'True' %}
+                En effet, la réponse était bien {{ answer.label }} : <br />
+                {% else %}
+                à la question "{{ question.label }}", il fallait répondre "{{ answer.label }}" : <br />
+                {% endif %}
+                {{ answer.explanation }}
+            </p>
+{% endblock %}
